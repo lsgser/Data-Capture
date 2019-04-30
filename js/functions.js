@@ -1,3 +1,4 @@
+
 /*
 	Author Lesego Seritili
 	These are all the functions that will display ,render and send requests and recieve a response from the rest api to the backend data across 
@@ -83,9 +84,9 @@ NB!! I did not code any birth date error filtering
 function Year()
 {
 	//Year
-	for(var i=1899; i<= 2018;i++)
+	for(var i=1900; i<= 2019;i++)
 	{
-		if(i==1899)
+		if(i==1900)
 		{
 			$('#year').append(`<option>Year</option>`)
 		}
@@ -445,7 +446,10 @@ function Next()
 					$('#next').removeClass("page-item").addClass("page-item disabled")
 					$('#previous').removeClass("page-item disabled").addClass("page-item")
 				}
-
+				else if(current_page >1 && current_page != max_pages)
+				{
+					$('#previous').removeClass("page-item disabled").addClass("page-item")
+				}
 				res.data.forEach(function(element,index){
 					$('#users').append(`
 						<tr>
@@ -479,7 +483,10 @@ function Next()
 					$('#next').removeClass("page-item").addClass("page-item disabled")
 					$('#previous').removeClass("page-item disabled").addClass("page-item")
 				}
-
+				else if(current_page >1 && current_page != max_pages)
+				{
+					$('#previous').removeClass("page-item disabled").addClass("page-item")
+				}
 				res.data.forEach(function(element,index){
 					$('#users').append(`
 						<tr>
@@ -524,7 +531,9 @@ function Previous()
 					$('#previous').removeClass("page-item").addClass("page-item disabled")
 					$('#next').removeClass("page-item disabled").addClass("page-item")
 				}
-
+				else if(current_page>1 && current_page != maximum_pages){
+					$('#next').removeClass("page-item disabled").addClass("page-item")
+				}
 				res.data.forEach(function(element,index){
 					$('#users').append(`
 						<tr>
@@ -556,6 +565,9 @@ function Previous()
 				if(current_page==1)//we disable the previous button and enable the next button
 				{	
 					$('#previous').removeClass("page-item").addClass("page-item disabled")
+					$('#next').removeClass("page-item disabled").addClass("page-item")
+				}
+				else if(current_page>1 && current_page != maximum_pages){
 					$('#next').removeClass("page-item disabled").addClass("page-item")
 				}
 				res.data.forEach(function(element,index){

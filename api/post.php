@@ -1,8 +1,9 @@
 <?php
+	// 5$a2LOEqD[Ku
   require_once('DB.php');
   header("Content-Type:application/json");
 
-  $db = new DB("127.0.0.1","exercise","root","");
+  $db = new DB("127.0.0.1","code","root","");/*We do the same here*/
 
   if($_SERVER['REQUEST_METHOD']=='POST')
   {

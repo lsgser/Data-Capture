@@ -1,8 +1,9 @@
 <?php
+
   require_once('DB.php');
   header("Content-Type:application/json");
 
-  $db = new DB("127.0.0.1","exercise","root","");
+  $db = new DB("127.0.0.1","code","root","");/*We change this line based on our database name and its password and also its url,in this case I'll just change the database name from exercise to code on my PC*/
 
   if($_SERVER['REQUEST_METHOD']=='GET')
   {
